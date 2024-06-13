@@ -14,4 +14,4 @@ class PersonOut(Schema):
     first_name: str
     last_name: str
     email: str
-    birth_date: date = None
+    # birth_date: date = None

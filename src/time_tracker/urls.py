@@ -17,9 +17,17 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from time_tracker.api import api
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+from time_tracker.api import api as api_v1
+from person.views import register
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/v1/", api.urls),
+    path("api/v1/", api_v1.urls),
+    path("api/v1/register/", register, name="register"),
+    path("api/v1/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/v1/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]
