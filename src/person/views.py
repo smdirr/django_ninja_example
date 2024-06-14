@@ -27,9 +27,6 @@ def register(request):
         if User.objects.filter(username=email).exists():
             return JsonResponse({"error": "Username already taken"}, status=400)
 
-        if User.objects.filter(email=email).exists():
-            return JsonResponse({"error": "Email already taken"}, status=400)
-
         user = User.objects.create_user(username=email, email=email, password=password)
         user.save()
 
