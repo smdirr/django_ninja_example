@@ -2,7 +2,7 @@
 
 django ninja framework example of use
 
-# steps
+## steps
 
 - setup.sh
 - tox (run lint & tests)
